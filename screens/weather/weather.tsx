@@ -3,10 +3,10 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import ForecastDetails from '../../components/weather/forecast-details/forecast-details.component';
 
-const WeatherScreen = () => {
+const WeatherScreen = ({ navigation }: any) => {
   return (
     <View>
-      <ForecastDetails />
+      <ForecastDetails navigation={navigation} />
     </View>
   );
 };

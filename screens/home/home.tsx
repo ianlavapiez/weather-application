@@ -5,7 +5,7 @@ import UserDetails from '../../components/home/user-details/user-details.compone
 import PositionButton from '../../components/home/position-button/position-button.component';
 import LocationDetails from '../../components/home/location-details/location-details.component';
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = ({ navigation }: any) => {
   const [showLocation, setShowLocation] = useState(false);
 
   return (

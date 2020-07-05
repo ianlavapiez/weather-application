@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
   subHeaderText: {
     fontSize: 20,
     color: '#333',
+    textAlign: 'center',
     marginBottom: 10,
   },
 });
