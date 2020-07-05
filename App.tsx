@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import Navigator from './routes/drawer';
+import { Provider as LocationProvider } from './context/location.context';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+import LoginScreen from './screens/login/login';
+
+const AuthStackNavigation = createStackNavigator(
+  {
+    Login: LoginScreen,
   },
+  {
+    initialRouteName: 'Login',
+  }
+);
+
+const MainNavigation = createSwitchNavigator({
+  AuthStack: AuthStackNavigation,
+  HomeDrawer: Navigator,
 });
+
+const App = createAppContainer(MainNavigation);
+
+export default () => {
+  return (
+    <LocationProvider>
+      <App />
+    </LocationProvider>
+  );
+};
