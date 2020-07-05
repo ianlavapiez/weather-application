@@ -49,6 +49,7 @@ const LoginScreen = ({ navigation }: any) => {
         if (decoded) {
           navigation.navigate('Home', {
             decoded,
+            jwtToken,
           });
         }
       }
