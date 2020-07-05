@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Platform,
   Alert,
+  Image,
 } from 'react-native';
 import * as AuthSession from 'expo-auth-session';
 import jwtDecode from 'jwt-decode';
@@ -55,14 +56,45 @@ const LoginScreen = ({ navigation }: any) => {
   }, [result]);
 
   return (
-    <View>
-      <TouchableOpacity onPress={() => promptAsync({ useProxy })}>
-        <Text>Hello</Text>
+    <View style={styles.container}>
+      <Image
+        style={styles.homeImage}
+        source={require('../../assets/atmospheric.png')}
+      />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => promptAsync({ useProxy })}
+      >
+        <Text style={styles.buttonText}>Login</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+  },
+  homeImage: {
+    width: 200,
+    height: 200,
+  },
+  button: {
+    height: 40,
+    backgroundColor: 'teal',
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    width: 200,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+});
 
 export default LoginScreen;
