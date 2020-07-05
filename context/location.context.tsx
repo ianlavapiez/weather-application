@@ -5,7 +5,8 @@ const locationReducer = (state, action) => {
   switch (action.type) {
     case 'GET_LOCATION':
       return action.payload;
-
+    case 'GET_LOCATION_ERROR':
+      return action.payload;
     default:
       return state;
   }
@@ -13,18 +14,25 @@ const locationReducer = (state, action) => {
 
 const getLocation = (dispatch) => {
   return async () => {
-    let { status } = await Location.requestPermissionsAsync();
+    try {
+      const { status } = await Location.requestPermissionsAsync();
 
-    if (status !== 'granted') {
+      if (status !== 'granted') {
+        dispatch({
+          type: 'GET_LOCATION_ERROR',
+          payload: 'Permission to access location was denied.',
+        });
+      }
+
+      const location = await Location.getCurrentPositionAsync({});
+
+      dispatch({ type: 'GET_LOCATION', payload: location });
+    } catch (err) {
       dispatch({
-        type: 'GET_LOCATION',
-        payload: 'Permission to access location was denied',
+        type: 'GET_LOCATION_ERROR',
+        payload: 'Something went wrong.',
       });
     }
-
-    let location = await Location.getCurrentPositionAsync({});
-
-    dispatch({ type: 'GET_LOCATION', payload: location });
   };
 };
 
