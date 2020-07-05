@@ -9,9 +9,9 @@ interface Props {
   navigation: any;
 }
 
-const WeatherScreen: FunctionComponent<Props> = ({
+const WeatherScreen: FunctionComponent<INavigationProps> = ({
   navigation,
-}: any): JSX.Element => {
+}): JSX.Element => {
   return (
     <View>
       <ForecastDetails navigation={navigation} />
