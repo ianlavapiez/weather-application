@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { TouchableOpacity, Text, StyleSheet, Button } from 'react-native';
 
-const PositionButton = ({ setShowLocation, showLocation }: any) => {
+const PositionButton: FunctionComponent = ({
+  setShowLocation,
+  showLocation,
+}: any): JSX.Element => {
   const toggleLocation = () => setShowLocation(!showLocation);
 
   return (
