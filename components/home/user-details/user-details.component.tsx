@@ -1,11 +1,18 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { FunctionComponent } from 'react';
+import { View, Text, StyleSheet, Linking } from 'react-native';
 
-const UserDetails = () => {
+const UserDetails: FunctionComponent = ({ decoded }: any): JSX.Element => {
+  const { name, nickname } = decoded;
+
   return (
     <View style={styles.container}>
-      <Text style={styles.nameText}>Name</Text>
-      <Text style={styles.linkText}>Your Github Link</Text>
+      <Text style={styles.nameText}>{name}</Text>
+      <Text
+        style={styles.linkText}
+        onPress={() => Linking.openURL(`https://github.com/${nickname}`)}
+      >
+        https://github.com/{nickname}
+      </Text>
     </View>
   );
 };

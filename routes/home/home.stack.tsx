@@ -1,13 +1,15 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import { INavigationProps } from '../../interfaces/navigation-interface';
+
 import Header from '../../shared/header/header';
 import Home from '../../screens/home/home';
 
 const screens = {
   Home: {
     screen: Home,
-    navigationOptions: ({ navigation }: any) => {
+    navigationOptions: ({ navigation }: INavigationProps) => {
       return {
         headerTitle: () => <Header navigation={navigation} title={'Home'} />,
       };

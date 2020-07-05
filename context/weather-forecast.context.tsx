@@ -3,7 +3,7 @@ import * as Location from 'expo-location';
 import weatherServer from '../api/weather-api-server';
 import createDataContext from './create-data.context';
 
-const weatherReducer = (state, action) => {
+const weatherReducer = (state: any, action: any) => {
   switch (action.type) {
     case 'GET_WEATHER_FORECAST':
       return action.payload;
@@ -14,7 +14,7 @@ const weatherReducer = (state, action) => {
   }
 };
 
-const getWeatherForecast = (dispatch) => {
+const getWeatherForecast = (dispatch: any) => {
   return async () => {
     const { status } = await Location.requestPermissionsAsync();
 
@@ -37,7 +37,9 @@ const getWeatherForecast = (dispatch) => {
           let weatherData = response.data;
 
           let newWeatherForecast = {
-            date: new Date(weatherData.current.dt * 1000).toLocaleDateString('en-US'),
+            date: new Date(weatherData.current.dt * 1000).toLocaleDateString(
+              'en-US'
+            ),
             temperature: weatherData.current.temp,
             description: weatherData.current.weather[0].description,
             main: weatherData.current.weather[0].main,

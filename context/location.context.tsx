@@ -1,7 +1,8 @@
-import createDataContext from './create-data.context';
 import * as Location from 'expo-location';
 
-const locationReducer = (state, action) => {
+import createDataContext from './create-data.context';
+
+const locationReducer = (state: any, action: any) => {
   switch (action.type) {
     case 'GET_LOCATION':
       return action.payload;
@@ -12,7 +13,7 @@ const locationReducer = (state, action) => {
   }
 };
 
-const getLocation = (dispatch) => {
+const getLocation = (dispatch: any) => {
   return async () => {
     try {
       const { status } = await Location.requestPermissionsAsync();

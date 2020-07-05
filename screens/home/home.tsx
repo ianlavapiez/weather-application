@@ -5,8 +5,15 @@ import UserDetails from '../../components/home/user-details/user-details.compone
 import PositionButton from '../../components/home/position-button/position-button.component';
 import LocationDetails from '../../components/home/location-details/location-details.component';
 
-const HomeScreen = ({ navigation }: any) => {
+const HomeScreen = ({ navigation }: { navigation: any }) => {
   const [showLocation, setShowLocation] = useState(false);
+  const decoded = navigation.state.params.decoded;
+
+  useEffect(() => {
+    if (typeof decoded === 'undefined') {
+      navigation.navigate('Login');
+    }
+  }, [decoded]);
 
   return (
     <View style={styles.container}>
@@ -14,7 +21,7 @@ const HomeScreen = ({ navigation }: any) => {
         style={styles.homeImage}
         source={require('../../assets/atmospheric.png')}
       />
-      <UserDetails />
+      <UserDetails decoded={decoded} />
       <PositionButton
         setShowLocation={setShowLocation}
         showLocation={showLocation}
