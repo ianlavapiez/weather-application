@@ -1,11 +1,8 @@
 import React from 'react';
-import * as AuthSession from 'expo-auth-session';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = ({ navigation }: any) => {
   const sample = () => navigation.navigate('Home');
-
-  console.log(AuthSession.getRedirectUrl());
 
   return (
     <View>

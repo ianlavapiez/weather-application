@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, Button } from 'react-native';
 
-const PositionButton = ({ setShowLocation, showLocation }) => {
+const PositionButton = ({ setShowLocation, showLocation }: any) => {
   const toggleLocation = () => setShowLocation(!showLocation);
 
   return (
