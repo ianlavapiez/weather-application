@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const UserDetails = () => {
+const UserDetails: FunctionComponent = (): JSX.Element => {
   return (
     <View style={styles.container}>
       <Text style={styles.nameText}>Name</Text>

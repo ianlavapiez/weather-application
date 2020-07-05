@@ -8,7 +8,9 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import { Context } from '../../../context/location.context';
 
-const LocationDetails: FunctionComponent = ({ navigation }: any) => {
+const LocationDetails: FunctionComponent = ({
+  navigation,
+}: any): JSX.Element => {
   const { state, getLocation } = useContext(Context);
 
   useEffect(() => {
