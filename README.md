@@ -11,6 +11,10 @@ To clone this repository:
 
 `git clone https://github.com/ianlavapiez/weather-application.git`
 
+After cloning do:
+
+`npm install`
+
 To run this application you can run these following commands:
 
 `npm start`: to start the expo application
