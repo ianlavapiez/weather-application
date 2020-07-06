@@ -1,4 +1,8 @@
 # weather-application
+<p align="center">
+  <img src="/assets/home-screen.jpg" alt="Home Screen" width="250px" height="500px" /> 
+  <img src="/assets/weather-screen.jpg" alt="Home Screen" width="250px" height="500px" />
+</p>
 An application built for users to check for the weather forecast based on their current location.
 
 This application was built using the Expo CLI, AuthO, and openweathermap.org's API.
