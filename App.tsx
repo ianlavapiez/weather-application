@@ -7,10 +7,11 @@ import { Provider as LocationProvider } from './context/location.context';
 import { Provider as WeatherForecastProvider } from './context/weather-forecast.context';
 
 import LoginScreen from './screens/login/login';
+import WeatherScreen from './screens/weather/weather';
 
 const AuthStackNavigation = createStackNavigator(
   {
-    Login: LoginScreen,
+    Login: WeatherScreen,
   },
   {
     initialRouteName: 'Login',

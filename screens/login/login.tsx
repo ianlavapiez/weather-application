@@ -18,11 +18,9 @@ const useProxy = Platform.select({ web: false, default: true });
 const redirectUri = AuthSession.makeRedirectUri({ useProxy });
 
 const LoginScreen = ({ navigation }: any) => {
-  const [name, setName] = useState(null);
-
   const [request, result, promptAsync] = AuthSession.useAuthRequest(
     {
-      redirectUri,
+      redirectUri: redirectUri,
       clientId: auth0ClientId,
       responseType: 'id_token',
       scopes: ['openid', 'profile'],
